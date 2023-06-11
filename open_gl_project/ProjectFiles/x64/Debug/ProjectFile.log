@@ -1,0 +1,10 @@
+﻿  main.cpp
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(39,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(43,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(46,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(50,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(82,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(82,23): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(99,35): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\steph\Downloads\OpenGLDataVizCookbook-master\OpenGLDataVizCookbook-master\Chapter2\main.cpp(140,13): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Project2.vcxproj -> C:\Users\steph\Desktop\myproject\Project2\x64\Debug\Project2.exe
