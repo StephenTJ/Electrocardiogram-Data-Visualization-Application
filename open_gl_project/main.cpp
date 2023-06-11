@@ -7,9 +7,10 @@
 #include <iostream>
 
 float ratio;
-float r=1,g=0,b=0;
+float r = 1, g = 0, b = 0;
+float rg = 1, gg = 0, bg = 0;
 float offsetY = -0.5f;
-float sp=0;
+float sp = 0;
 typedef struct
 {
     GLfloat x, y, z;
@@ -18,7 +19,6 @@ typedef struct
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    std::cout << key << std::endl;
     if (key == 82) {
         r = 1;
         g = 0;
@@ -34,6 +34,21 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         g = 0;
         b = 1;
     }
+    if (key == 84) {
+        rg = 1;
+        gg = 0;
+        bg = 0;
+    }
+    if (key == 72) {
+        rg = 0;
+        gg = 1;
+        bg = 0;
+    }
+    if (key == 78) {
+        rg = 0;
+        gg = 0;
+        bg = 1;
+    }
     if (key == 45) {
         offsetY = offsetY - 0.1;
     }
@@ -41,11 +56,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (key == 61) {
         offsetY = offsetY + 0.1;
     }
-    if (key == 85) {
+    if (key == 67) {
         sp = sp + 0.001;
     }
-
-    if (key == 76) {
+    if (key == 69) {
         sp = sp - 0.001;
     }
 
@@ -65,25 +79,25 @@ void DrawGrid(GLfloat width, GLfloat height, GLfloat gridWidth)
 {
     for (float i = -height; i < height; i += gridWidth)
     {
-        Vertex v1 = { -width, i, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f };
-        Vertex v2 = { width, i, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f };
+        Vertex v1 = { -width, i, 0.0f, rg, gg, bg, 1.0f };
+        Vertex v2 = { width, i, 0.0f, rg, gg, bg, 1.0f };
         DrawLineSegment(v1, v2);
     }
     for (float i = -width; i < width; i += gridWidth)
     {
-        Vertex v1 = { i, -height, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f };
-        Vertex v2 = { i, height, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f };
+        Vertex v1 = { i, -height, 0.0f, rg, gg, bg, 1.0f };
+        Vertex v2 = { i, height, 0.0f, rg, gg, bg, 1.0f };
         DrawLineSegment(v1, v2);
     }
 }
 void PlotECGData(int offset, int size)
 {
-    const float space = 0.01042-sp;
+    const float space = 0.01042 - sp;
     float pos = -2.65f;
 
     glLineWidth(3.0f);
     glBegin(GL_LINE_STRIP);
-    glColor4f(r,g,b, 1.0f);
+    glColor4f(r, g, b, 1.0f);
     for (size_t i = offset; i < size + offset; ++i)
     {
         const float data = data_ecg[i] + offsetY;
@@ -99,6 +113,22 @@ void ECG(int counter)
 }
 int main(int argc, char const* argv[])
 {
+    std::cout << "Electro Cardio Gram\n\n";
+
+    std::cout << "Change Wave Color:\n";
+    std::cout << "Press R for Red \t Press G for Green \t Press B for Blue\n\n";
+
+    std::cout << "Change Grid Color:\n";
+    std::cout << "Press T for Red \t Press H for Green \t Press N for Blue\n\n";
+
+    std::cout << "Change Wave Position:\n";
+    std::cout << "Move the wave top \t\t Press +\n";
+    std::cout << "Move the wave down \t\t Press -\n\n";
+
+    std::cout << "Change Shape of Wave:\n";
+    std::cout << "Make the wave elongated \t Press e\n";
+    std::cout << "Make the wave compressed \t Press c\n";
+
     if (!glfwInit())
     {
         exit(EXIT_FAILURE);
